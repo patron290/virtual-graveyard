@@ -12,15 +12,30 @@
                 placeholder="Enter a brief description..."></textarea>
         </mat-form-field>
 
-        <div class="file-upload-container">
-            <button type="button" mat-stroked-button (click)="fileInput.click()">
-                <mat-icon>upload_file</mat-icon>
-                Upload Voice
-            </button>
-            <input hidden (change)="onFileSelected($event)" #fileInput type="file" accept="audio/*">
-            @if (fileName()) {
-            <span class="file-name">{{ fileName() }}</span>
-            }
+        <div class="file-uploads-row">
+            <!-- Voice Upload -->
+            <div class="file-upload-item">
+                <button type="button" mat-stroked-button (click)="voiceInput.click()">
+                    <mat-icon>mic</mat-icon>
+                    Voice
+                </button>
+                <input hidden (change)="onVoiceFileSelected($event)" #voiceInput type="file" accept="audio/*">
+                @if (voiceFileName()) {
+                <span class="file-name">{{ voiceFileName() }}</span>
+                }
+            </div>
+
+            <!-- Image Upload -->
+            <div class="file-upload-item">
+                <button type="button" mat-stroked-button (click)="imageInput.click()">
+                    <mat-icon>image</mat-icon>
+                    Image
+                </button>
+                <input hidden (change)="onImageFileSelected($event)" #imageInput type="file" accept="image/*">
+                @if (imageFileName()) {
+                <span class="file-name">{{ imageFileName() }}</span>
+                }
+            </div>
         </div>
     </form>
 </mat-dialog-content>

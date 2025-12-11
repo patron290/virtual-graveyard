@@ -2,11 +2,16 @@
   <mat-sidenav #drawer class="sidenav" mode="over">
     <div class="sidebar-header">
       <div class="portrait-container">
-        <img src="/portrait.webp" alt="AI Portrait" class="portrait-img">
+        <img src="/kennedy_portrait.jpg" alt="AI Portrait" class="portrait-img">
       </div>
-      <button mat-flat-button color="primary" class="talk-button animated-button">
+      <button mat-flat-button color="primary" class="talk-button animated-button" (click)="toggleTalk()"
+        [class.talking]="isTalking()">
         Talk with me
+        @if (isTalking()) {
+        <mat-icon>graphic_eq</mat-icon>
+        } @else {
         <mat-icon>mic</mat-icon>
+        }
       </button>
     </div>
     <mat-nav-list>
@@ -14,12 +19,6 @@
       <a mat-list-item href="#">Link 2</a>
       <a mat-list-item href="#">Link 3</a>
     </mat-nav-list>
-    <div class="sidebar-footer">
-      <button mat-stroked-button class="add-person-button" (click)="openAddPersonDialog()">
-        <mat-icon>add</mat-icon>
-        Add Person
-      </button>
-    </div>
   </mat-sidenav>
   <mat-sidenav-content>
     <button type="button" mat-icon-button (click)="drawer.toggle()" class="menu-button">
@@ -27,8 +26,15 @@
     </button>
     <div class="fullscreen-container">
       <img src="/kennedy.png" alt="Graveyard Background" class="fullscreen-bg">
+
+      <!-- Add Person Button (Bottom Right) -->
+      <button mat-flat-button class="add-person-button" (click)="openAddPersonDialog()">
+        <mat-icon>add</mat-icon>
+        Add Person
+      </button>
+
       <div class="avatar-bubble floating-animation" (click)="drawer.toggle()">
-        <img src="/portrait.webp" alt="JFK Avatar">
+        <img src="/kennedy_portrait.jpg" alt="JFK Avatar">
       </div>
     </div>
     <router-outlet />

@@ -10,6 +10,19 @@
     width: 100%;
 }
 
+.file-uploads-row {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.file-upload-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
 .file-upload-container {
     display: flex;
     align-items: center;
@@ -18,11 +31,11 @@
 }
 
 .file-name {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: rgba(255, 255, 255, 0.7);
     font-style: italic;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 200px;
+    max-width: 150px;
 }

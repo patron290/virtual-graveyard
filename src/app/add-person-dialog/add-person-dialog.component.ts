@@ -24,14 +24,22 @@ import { FormsModule } from '@angular/forms';
 export class AddPersonDialogComponent {
     name = signal('');
     description = signal('');
-    fileName = signal<string | null>(null);
+    voiceFileName = signal<string | null>(null);
+    imageFileName = signal<string | null>(null);
 
     constructor(private dialogRef: MatDialogRef<AddPersonDialogComponent>) { }
 
-    onFileSelected(event: any) {
+    onVoiceFileSelected(event: any) {
         const file: File = event.target.files[0];
         if (file) {
-            this.fileName.set(file.name);
+            this.voiceFileName.set(file.name);
+        }
+    }
+
+    onImageFileSelected(event: any) {
+        const file: File = event.target.files[0];
+        if (file) {
+            this.imageFileName.set(file.name);
         }
     }
 
@@ -40,7 +48,8 @@ export class AddPersonDialogComponent {
         this.dialogRef.close({
             name: this.name(),
             description: this.description(),
-            voiceFile: this.fileName()
+            voiceFile: this.voiceFileName(),
+            imageFile: this.imageFileName()
         });
     }
 

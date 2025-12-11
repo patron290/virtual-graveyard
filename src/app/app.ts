@@ -24,12 +24,33 @@ import { AddPersonDialogComponent } from './add-person-dialog/add-person-dialog.
 })
 export class App {
   protected readonly title = signal('virtual-graveyard');
+  protected readonly isTalking = signal(false);
   private readonly dialog = inject(MatDialog);
+  private audio: HTMLAudioElement | null = null;
 
   openAddPersonDialog() {
     this.dialog.open(AddPersonDialogComponent, {
       width: '400px',
       panelClass: 'custom-dialog-container' // Optional for global styling if needed
     });
+  }
+
+  toggleTalk() {
+    if (this.isTalking()) {
+      this.audio?.pause();
+      this.audio = null;
+      this.isTalking.set(false);
+      return;
+    }
+
+    this.audio = new Audio('/kennedy.mp3');
+    this.audio.load();
+
+    this.audio.play().catch(error => {
+      console.error("Audio playback failed:", error);
+      this.isTalking.set(false);
+    });
+
+    this.isTalking.set(true);
   }
 }
