@@ -1,4 +1,3 @@
-
 // Include theming for Angular Material with `mat.theme()`.
 // This Sass mixin will define CSS variables that are used for styling Angular Material
 // components according to the Material 3 design spec.
@@ -7,14 +6,12 @@
 @use '@angular/material' as mat;
 
 html {
-  @include mat.theme((
-    color: (
-      primary: mat.$azure-palette,
-      tertiary: mat.$blue-palette,
-    ),
-    typography: Roboto,
-    density: 0,
-  ));
+  @include mat.theme((color: (primary: mat.$azure-palette,
+        tertiary: mat.$blue-palette,
+      ),
+      typography: Roboto,
+      density: 0,
+    ));
 }
 
 body {
@@ -33,14 +30,49 @@ body {
   // Reset the user agent margin.
   margin: 0;
 }
+
 /* You can add global styles to this file, and also import other style files */
 body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    width: 100vw;
-    background-color: #121212;
-    font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: #121212;
+  font-family: sans-serif;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* Custom Dialog Styling */
+.custom-dialog-container .mat-mdc-dialog-container .mat-mdc-dialog-surface {
+  background-color: #1e1e1e !important;
+  color: white !important;
+}
+
+/* Specific text elements */
+.custom-dialog-container h2[mat-dialog-title],
+.custom-dialog-container .mat-mdc-dialog-content,
+.custom-dialog-container .mat-mdc-dialog-content * {
+  color: white !important;
+}
+
+/* Ensure form fields are visible on black */
+.custom-dialog-container .mat-mdc-form-field-input-control {
+  color: white !important;
+}
+
+.custom-dialog-container .mat-mdc-form-field-label {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.custom-dialog-container .mat-mdc-text-field-wrapper {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}

@@ -33,6 +33,26 @@
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, transparent 100%);
 }
 
+.sidebar-footer {
+    margin-top: auto;
+    padding: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.add-person-button {
+    width: 100%;
+    border-radius: 8px !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+    transition: all 0.2s ease;
+}
+
+.add-person-button:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border-color: white !important;
+    color: white !important;
+}
+
 .portrait-container {
     width: 120px;
     height: 120px;
@@ -109,6 +129,49 @@
     margin: auto;
     top: 50%;
     transform: translateY(-50%);
+}
+
+.avatar-bubble {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -270px;
+    /* Half of height */
+    margin-left: -340px;
+    /* Half of width */
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 4px solid white;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    z-index: 20;
+    background: #000;
+    cursor: pointer;
+}
+
+.avatar-bubble img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.floating-animation {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
 }
 
 .fullscreen-bg {

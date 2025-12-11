@@ -14,13 +14,22 @@
       <a mat-list-item href="#">Link 2</a>
       <a mat-list-item href="#">Link 3</a>
     </mat-nav-list>
+    <div class="sidebar-footer">
+      <button mat-stroked-button class="add-person-button" (click)="openAddPersonDialog()">
+        <mat-icon>add</mat-icon>
+        Add Person
+      </button>
+    </div>
   </mat-sidenav>
   <mat-sidenav-content>
     <button type="button" mat-icon-button (click)="drawer.toggle()" class="menu-button">
       <mat-icon>menu</mat-icon>
     </button>
     <div class="fullscreen-container">
-      <img src="/basin.webp" alt="Serene Lake Basin" class="fullscreen-bg">
+      <img src="/kennedy.png" alt="Graveyard Background" class="fullscreen-bg">
+      <div class="avatar-bubble floating-animation" (click)="drawer.toggle()">
+        <img src="/portrait.webp" alt="JFK Avatar">
+      </div>
     </div>
     <router-outlet />
   </mat-sidenav-content>
