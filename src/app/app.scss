@@ -1,0 +1,119 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    background-color: #121212;
+}
+
+.sidenav-container {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+}
+
+.sidenav {
+    width: 280px;
+    /* Slightly wider for better spacing */
+    background-color: #1e1e1e;
+    /* Slightly lighter than bg */
+    color: white;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+    gap: 1.5rem;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, transparent 100%);
+}
+
+.portrait-container {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+    /* Cyan glow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portrait-container:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
+}
+
+.portrait-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.talk-button {
+    width: 100%;
+    border-radius: 2rem !important;
+    padding-block: 1.25rem !important;
+    /* Taller button */
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    background-color: #00bcd4 !important;
+    /* Cyan accent */
+    color: #000 !important;
+}
+
+.animated-button {
+    animation: pulse-glow 2s infinite;
+}
+
+@keyframes pulse-glow {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 188, 212, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(0, 188, 212, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 188, 212, 0);
+    }
+}
+
+.menu-button {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 10;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(4px);
+}
+
+.fullscreen-container {
+    width: 90vw;
+    height: 90vh;
+    max-width: 1600px;
+    border-radius: 24px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    position: relative;
+    /* Center the container */
+    margin: auto;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.fullscreen-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
