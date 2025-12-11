@@ -13,6 +13,22 @@
         <mat-icon>mic</mat-icon>
         }
       </button>
+      <div class="bio-section">
+        <h3>John F. Kennedy</h3>
+        <p class="bio-text">
+          35th President of the United States. A transformative leader who inspired a nation with his vision of a "New
+          Frontier," navigating the Cold War and advocating for civil rights before his tragic assassination in 1963.
+        </p>
+      </div>
+      <div class="chat-section">
+        <mat-form-field appearance="outline" class="chat-input-field">
+          <textarea matInput [(ngModel)]="userMessage" placeholder="Ask Mr. President..." rows="3"></textarea>
+        </mat-form-field>
+        <button mat-flat-button class="send-button" (click)="sendMessage()" [disabled]="!userMessage().trim()">
+          Send Message
+          <mat-icon>send</mat-icon>
+        </button>
+      </div>
     </div>
     <mat-nav-list>
       <a mat-list-item href="#">Link 1</a>
